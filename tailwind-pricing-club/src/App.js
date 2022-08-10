@@ -1,12 +1,12 @@
 import './App.css';
-import MyChart from './Components/MyChart/MyChart';
+import MyAnimation from './Components/MyAnimation/MyAnimation';
 import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <MyChart />
+      <MyAnimation />
     </div>
   );
 }
