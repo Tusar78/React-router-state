@@ -1,12 +1,12 @@
 import './App.css';
+import MyChart from './Components/MyChart/MyChart';
 import Navbar from './Components/Navbar/Navbar';
-import Posts from './Components/Posts/Posts';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Posts />
+      <MyChart />
     </div>
   );
 }
