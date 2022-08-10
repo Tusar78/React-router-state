@@ -1,5 +1,16 @@
-import React from "react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  LineChart,
+  Line,
+  BarChart, 
+  Bar,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+} from "recharts";
 
 const data = [
   {
@@ -46,11 +57,58 @@ const data = [
   },
 ];
 
+const BASE_URL = 'https://openapi.programming-hero.com/api/phones?search=iphone';
+
 const MyChart = () => {
+  const [phones, setPhones] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}`)
+      .then(res => {
+        const data = res.data.data;
+        const phoneData = data.map(phone => {
+          const parts = phone.slug.split('-');
+          const ph = {
+            name: parts[0],
+            value: parseInt(parts[1])
+          }
+          return ph;
+        })
+        console.log(phoneData);
+        setPhones(phoneData);
+      })
+  }, []);
+
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-blue-100 via-purple-200 to-blue-100 ">
-      <div className="container mx-auto">
+    <div className="w-full min-h-screen">
+      <div className="container mx-auto mt-8">
         <LineChart
+          width={1200}
+          height={400}
+          data={phones}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#8884d8"
+            strokeDasharray="5 5"
+          />
+        </LineChart>
+
+        <div className="my-4"></div>
+
+        <BarChart
           width={500}
           height={300}
           data={data}
@@ -66,19 +124,9 @@ const MyChart = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line
-            type="monotone"
-            dataKey="price"
-            stroke="#8884d8"
-            strokeDasharray="5 5"
-          />
-          <Line
-            type="monotone"
-            dataKey="sales"
-            stroke="#82ca9d"
-            strokeDasharray="3 4 5 2"
-          />
-        </LineChart>
+          <Bar dataKey="price" fill="#8884d8" />
+          <Bar dataKey="sales" fill="#82ca9d" />
+        </BarChart>
       </div>
     </div>
   );
