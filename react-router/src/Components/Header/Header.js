@@ -1,22 +1,27 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React from "react";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   return (
-    <header className='header'>
+    <header className="header">
       <div className="navbar">
         <div className="nav">
           <div className="nav__menu">
             <ul className="nav__list">
               <li className="nav__item">
-                {/* <a href="/" className='nav__link'>Home</a> */}
-                <Link to='/' className="nav__link">Home</Link>
+                <CustomLink to="/" className="nav__link">
+                  Home
+                </CustomLink>
               </li>
               <li className="nav__item">
-              <Link to='/friends' className="nav__link">Friends</Link>
+                <CustomLink to="/friends" className="nav__link">
+                  Friends
+                </CustomLink>
               </li>
               <li className="nav__item">
-                <Link to='/about' className="nav__link">About</Link>
+                <CustomLink to="/about" className="nav__link">
+                About
+                </CustomLink>
               </li>
             </ul>
           </div>
