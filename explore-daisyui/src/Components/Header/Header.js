@@ -1,4 +1,5 @@
 import React from "react";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 const Header = () => {
   return (
@@ -6,23 +7,23 @@ const Header = () => {
       <div className="w-full glass">
         <nav className="navbar bg-base-100 max-w-screen-lg mx-auto">
           <div className="flex-1">
-            <a href="/" className="btn btn-ghost text-xl uppercase">
+            <ActiveLink to="/" className="btn btn-ghost text-xl uppercase">
               Naraz
-            </a>
+            </ActiveLink>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <a href="/">Home</a>
+                <ActiveLink to="/">Home</ActiveLink>
               </li>
               <li>
-                <a href="/about">About</a>
+                <ActiveLink to="/about">About</ActiveLink>
               </li>
               <li>
-                <a href="/products">Products</a>
+                <ActiveLink to="/products">Products</ActiveLink>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <ActiveLink to="/contact">Contact</ActiveLink>
               </li>
             </ul>
           </div>
