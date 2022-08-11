@@ -4,10 +4,13 @@ import Home from "./Components/Home/Home";
 import Friends from "./Components/Friends/Friends";
 import About from "./Components/About/About";
 import NotFound from "./Components/NotFound/NotFound";
+import Header from "./Components/Header/Header";
+import './App.css'
+
 function App() {
   return (
     <>
-      <h2>I am available All time</h2>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
