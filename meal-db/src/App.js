@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./Components/Header/Header";
 
 function App() {
   return (
     <>
-      <h2>Ready to our environment!</h2>
+      <Header />
     </>
   );
 }
