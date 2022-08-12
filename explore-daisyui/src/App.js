@@ -8,6 +8,7 @@ import Contact from "./Components/Contact/Contact";
 import NotFound from "./Components/NotFound/NotFound";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import Posts from "./Components/Posts/Posts";
+import PostDetails from "./Components/PostDetails/PostDetails";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
-        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts" element={<Posts />}>
+          <Route path=":postId" element={<PostDetails />} />
+        </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />}/>
       </Routes>
