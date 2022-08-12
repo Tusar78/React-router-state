@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ActiveLink from "../ActiveLink/ActiveLink";
 
-const Header = () => {
+const Header = ({ handleSearch }) => {
   return (
     <header>
       <div className="w-full shadow">
@@ -13,11 +13,12 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex-none">
-            <div class="form-control">
+            <div className="form-control">
               <input
                 type="text"
                 placeholder="Search"
-                class="input input-bordered"
+                className="input input-bordered"
+                onChange={(e) => handleSearch(e)}
               />
             </div>
             <ul className="menu menu-horizontal p-0">

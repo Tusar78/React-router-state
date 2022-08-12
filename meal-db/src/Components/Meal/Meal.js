@@ -9,16 +9,16 @@ const Meal = ({ meal }) => {
     navigate(path);
   }
   return (
-    <div class="card max-w-96 bg-base-100 shadow-xl">
+    <div className="card max-w-96 bg-base-100 shadow-xl">
       <figure>
         <img src={strMealThumb} alt={strMeal} className="w-full" />
       </figure>
-      <div class="card-body">
-        <div class="badge badge-secondary">{strCategory}</div>
-        <h2 class="card-title">{strMeal}</h2>
+      <div className="card-body">
+        <div className="badge badge-secondary">{strCategory}</div>
+        <h2 className="card-title">{strMeal}</h2>
         <p>{strInstructions.substr(0, 50)}...</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary" onClick={handleNavigate}>More Info</button>
+        <div className="card-actions justify-end">
+          <button className="btn btn-primary" onClick={handleNavigate}>More Info</button>
         </div>
       </div>
     </div>
