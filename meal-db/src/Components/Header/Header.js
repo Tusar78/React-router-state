@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 const Header = () => {
   return (
@@ -6,9 +8,9 @@ const Header = () => {
       <div className="w-full shadow">
         <nav className="navbar bg-base-100 max-w-screen-lg mx-auto">
           <div className="flex-1">
-            <a href="/" className="btn btn-ghost normal-case text-xl">
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
               Meal DB
-            </a>
+            </Link>
           </div>
           <div className="flex-none">
             <div class="form-control">
@@ -20,16 +22,16 @@ const Header = () => {
             </div>
             <ul className="menu menu-horizontal p-0">
               <li>
-                <a href="/">Home</a>
+                <ActiveLink to="/home">Home</ActiveLink>
               </li>
               <li>
-                <a href="/">Meals</a>
+                <ActiveLink to="/meals">Meals</ActiveLink>
               </li>
               <li>
-                <a href="/">About</a>
+                <ActiveLink to="/about">About</ActiveLink>
               </li>
               <li>
-                <a href="/">Contact</a>
+                <ActiveLink to="/contact">Contact</ActiveLink>
               </li>
             </ul>
           </div>

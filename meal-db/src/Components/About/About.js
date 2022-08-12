@@ -1,22 +1,28 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    const path = `/contact`;
+    navigate(path);
+  }
   return (
     <section className="bg-base-200">
       <div
-        class="hero min-h-screen"
-        style="background-image: url(https://placeimg.com/1000/800/arch);"
+        className="hero min-h-screen"
+        style={{backgroundImage: 'url(https://placeimg.com/1000/800/arch)'}}
       >
-        <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-md">
-            <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-            <p class="mb-5">
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">WE ARE.</h1>
+            <p className="mb-5">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button class="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary" onClick={handleNavigate}>Contact Us</button>
           </div>
         </div>
       </div>
