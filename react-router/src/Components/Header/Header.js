@@ -19,6 +19,11 @@ const Header = () => {
                 </CustomLink>
               </li>
               <li className="nav__item">
+                <CustomLink to="/posts" className="nav__link">
+                  Post
+                </CustomLink>
+              </li>
+              <li className="nav__item">
                 <CustomLink to="/about" className="nav__link">
                 About
                 </CustomLink>
