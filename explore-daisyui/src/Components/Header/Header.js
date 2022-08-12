@@ -23,6 +23,9 @@ const Header = () => {
                 <ActiveLink to="/products">Products</ActiveLink>
               </li>
               <li>
+                <ActiveLink to="/posts">Posts</ActiveLink>
+              </li>
+              <li>
                 <ActiveLink to="/contact">Contact</ActiveLink>
               </li>
             </ul>
