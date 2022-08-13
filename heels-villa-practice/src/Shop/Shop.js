@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
-import { addToLocalStorage, getLocalStorage } from "../Utils/Utils";
+import { addToLocalStorage, getLocalStorage, clearLocalStorage } from "../Utils/Utils";
 import "./Shop.css";
 
 const Shop = () => {
@@ -47,6 +47,7 @@ const Shop = () => {
 
   const handleClearCart = () => {
     setCart([]);
+    clearLocalStorage()
   };
 
   return (

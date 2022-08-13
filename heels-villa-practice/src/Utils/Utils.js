@@ -22,4 +22,8 @@ const addToLocalStorage = id => {
   localStorage.setItem('shopping_cart', JSON.stringify(shoppingCart))
 }
 
-export {addToLocalStorage, getLocalStorage}
+const clearLocalStorage = () => {
+  localStorage.removeItem('shopping_cart');
+}
+
+export {addToLocalStorage, getLocalStorage, clearLocalStorage}
