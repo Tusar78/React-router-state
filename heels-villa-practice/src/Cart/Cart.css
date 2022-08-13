@@ -43,6 +43,7 @@
   font-size: 2rem;
   font-family: "Amiri", serif;
   margin-bottom: 25px;
+  cursor: not-allowed;
 }
 
 .remove-button {
