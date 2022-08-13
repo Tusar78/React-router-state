@@ -9,6 +9,8 @@ const Cart = ({ cart, products, handleClearCart }) => {
   useEffect(() => {
     if (cart.length > 0) {
       setOffer(true)
+    } else {
+      setOffer(false)
     }
   }, [cart.length])
 
@@ -22,7 +24,11 @@ const Cart = ({ cart, products, handleClearCart }) => {
       <div className="cart-header">
         <h1>Order Summery</h1>
         <button
-          onClick={handleClearCart}
+          onClick={() => {
+            return (
+              handleClearCart(),
+              setOfferProduct({})
+            )}}
           className="remove-button"
           title="Clear Cart"
         >
@@ -37,6 +43,7 @@ const Cart = ({ cart, products, handleClearCart }) => {
               {product.name} {product.color}
             </p>
             <p>$ {product.price}</p>
+            <p>Qyt: {product.quantity}</p>
           </div>
         </div>
       ))}
