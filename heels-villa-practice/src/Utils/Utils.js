@@ -4,8 +4,6 @@ const getLocalStorage = () => {
   return getItem;
 } 
 
-console.log(getLocalStorage());
-
 const addToLocalStorage = id => {
   const exits = getLocalStorage();
   let shoppingCart = {};
@@ -24,4 +22,4 @@ const addToLocalStorage = id => {
   localStorage.setItem('shopping_cart', JSON.stringify(shoppingCart))
 }
 
-export {addToLocalStorage}
+export {addToLocalStorage, getLocalStorage}

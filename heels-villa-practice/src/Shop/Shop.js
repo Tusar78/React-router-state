@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
-import { addToLocalStorage } from "../Utils/Utils";
+import { addToLocalStorage, getLocalStorage } from "../Utils/Utils";
 import "./Shop.css";
 
 const Shop = () => {
@@ -16,18 +16,34 @@ const Shop = () => {
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
-    const exits = cart.find(product => product.id == selectedProduct.id);
+    const exits = cart.find((product) => product.id === selectedProduct.id);
     if (!exits) {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter(product => product.id != selectedProduct.id);
+      const rest = cart.filter((product) => product.id !== selectedProduct.id);
       selectedProduct.quantity += 1;
-      newCart = [...rest, selectedProduct]
+      newCart = [...rest, selectedProduct];
     }
-    addToLocalStorage(selectedProduct.id)
-    setCart(newCart)
+    addToLocalStorage(selectedProduct.id);
+    setCart(newCart);
   };
+
+  useEffect(() => {
+    if (products.length) {
+      const storedProductsIds = getLocalStorage();
+      const previousCart = [];
+      for (const id in storedProductsIds) {
+        const foundProduct = products.find((product) => product.id === id);
+        if (foundProduct) {
+          const quantity = storedProductsIds[id];
+          foundProduct.quantity = quantity;
+          previousCart.push(foundProduct);
+        }
+      }
+      setCart(previousCart);
+    }
+  }, [products]);
 
   const handleClearCart = () => {
     setCart([]);
@@ -35,8 +51,8 @@ const Shop = () => {
 
   return (
     <>
-      <div className='shop'>
-        <div className='products-container'>
+      <div className="shop">
+        <div className="products-container">
           {products.map((product, index) => {
             return (
               <Product
@@ -47,7 +63,7 @@ const Shop = () => {
             );
           })}
         </div>
-        <div className='cart-container'>
+        <div className="cart-container">
           <Cart
             cart={cart}
             products={products}
