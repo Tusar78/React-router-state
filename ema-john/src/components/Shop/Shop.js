@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useCart from '../../hooks/useCart';
 import useProduct from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
@@ -8,22 +9,23 @@ import './Shop.css';
 const Shop = () => {
     // const [products, setProducts] = useState([]);
     const [products, setProducts] = useProduct();
+    const [cart, setCart] = useCart(products);
     
-    const [cart, setCart] = useState([]);
+    // const [cart, setCart] = useState([]);
 
-    useEffect( () =>{
-        const storedCart = getStoredCart();
-        const savedCart = [];
-        for(const id in storedCart){
-            const addedProduct = products.find(product => product.id === id);
-            if(addedProduct){
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                savedCart.push(addedProduct);
-            }
-        }
-        setCart(savedCart);
-    }, [products])
+    // useEffect( () =>{
+    //     const storedCart = getStoredCart();
+    //     const savedCart = [];
+    //     for(const id in storedCart){
+    //         const addedProduct = products.find(product => product.id === id);
+    //         if(addedProduct){
+    //             const quantity = storedCart[id];
+    //             addedProduct.quantity = quantity;
+    //             savedCart.push(addedProduct);
+    //         }
+    //     }
+    //     setCart(savedCart);
+    // }, [products])
 
     const handleAddToCart = (selectedProduct) =>{
         console.log(selectedProduct);
