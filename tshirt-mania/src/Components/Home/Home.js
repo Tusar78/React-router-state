@@ -16,6 +16,11 @@ const Home = () => {
       alert(`you can't added same item`)
     }
   }
+
+  const handleRemoveItem = selectedItem => {
+    const rest = cart.filter(product => product._id !== selectedItem._id);
+    setCart(rest)
+  }
   return (
     <div className='flex space-x-4 mt-4'>
       <div className='basis-2/3 pl-4 grid grid-cols-3 gap-8'>
@@ -24,7 +29,7 @@ const Home = () => {
         }
       </div>
       <div className='basis-1/3'>
-        <Cart cart={cart} />
+        <Cart cart={cart} handleRemoveItem={handleRemoveItem} />
       </div>
     </div>
   );
