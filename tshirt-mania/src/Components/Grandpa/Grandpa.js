@@ -12,12 +12,12 @@ const Grandpa = () => {
     setMyHouse(newHouse);
   };
 
-  const ornament = ["Diamond Ring!", 'Gold Ring', 'Matir Ring'];
+  // const ornament = ["Diamond Ring!", 'Gold Ring', 'Matir Ring'];
 
   const house = <p>There are {myHouse} house</p>;
 
   return (
-    <RingContext.Provider value={ornament}>
+    <RingContext.Provider value={[myHouse, setMyHouse]}>
       <div className="max-w-screen-lg mx-auto mt-6 border border-amber-400 p-4">
         <h2>Grandpa</h2>
         <button className="btn btn-accent" onClick={handleHouse}>

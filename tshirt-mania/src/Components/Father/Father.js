@@ -10,7 +10,7 @@ const Father = ({house}) => {
       {house}
 
       <div className='m-2 p-2 grid gap-2'>
-        <MySelf house={house} />
+        <MySelf />
         <Brother house={house} />
         <Sister house={house} />
       </div>

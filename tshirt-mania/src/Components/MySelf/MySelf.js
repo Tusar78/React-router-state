@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { RingContext } from '../Grandpa/Grandpa';
 
-const MySelf = ({house}) => {
-  const gift = useContext(RingContext)
+const MySelf = () => {
+  const [myHouse, setMyHouse] = useContext(RingContext)
   return (
     <div className='border border-pink-400 p-4'>
       <h5>My Self</h5>
-      {house}
-      <p className='text-white bg-purple-600 font-semibold px-2'>{gift[2]}</p>
+      <p>There are {myHouse} house</p>
+      <p className='text-white bg-purple-600 font-semibold px-2'>My Gift: {myHouse}</p>
+      <button className='btn btn-secondary' onClick={() => setMyHouse(myHouse + 1)}>Gift</button>
     </div>
   );
 };
