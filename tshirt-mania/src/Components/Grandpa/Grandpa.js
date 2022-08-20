@@ -1,9 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import Aunty from "../Aunty/Aunty";
 import Father from "../Father/Father";
 import Uncle from "../Uncle/Uncle";
 
-export const RingContext = createContext("Ring");
 
 const Grandpa = () => {
   const [myHouse, setMyHouse] = useState(0);
@@ -17,7 +16,6 @@ const Grandpa = () => {
   const house = <p>There are {myHouse} house</p>;
 
   return (
-    <RingContext.Provider value={ornament}>
       <div className="max-w-screen-lg mx-auto mt-6 border border-amber-400 p-4">
         <h2>Grandpa</h2>
         <button className="btn btn-accent" onClick={handleHouse}>
@@ -30,7 +28,6 @@ const Grandpa = () => {
           <Aunty house={house} />
         </div>
       </div>
-    </RingContext.Provider>
   );
 };
 
