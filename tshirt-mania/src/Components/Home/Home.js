@@ -8,8 +8,13 @@ const Home = () => {
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = selectedItem => {
-    const newCart = [...cart, selectedItem];
-    setCart(newCart)
+    const exits = cart.find(product => product._id === selectedItem._id);
+    if (!exits) {
+      const newCart = [...cart, selectedItem];
+      setCart(newCart)
+    } else {
+      alert(`you can't added same item`)
+    }
   }
   return (
     <div className='flex space-x-4 mt-4'>
