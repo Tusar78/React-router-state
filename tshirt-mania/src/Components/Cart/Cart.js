@@ -20,7 +20,7 @@ const Cart = ({ cart, handleRemoveItem }) => {
         cart.map(product => <AddedCart key={product._id} product={product} handleRemoveItem={handleRemoveItem} />)
       }
       {
-        cart.length !== 4 ? <></> : <button className='btn btn-error'>Remove All</button>
+        cart.length >= 4 ? <button className='btn btn-error'>Remove All</button> : <></> 
       }
     </div>
   );
